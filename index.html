@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Admin - IronPulse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial Black', sans-serif;
+        }
+    </style>
+</head>
+<body class="relative text-white">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1920&q=80"
+             alt="Treino" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+    </div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <header class="fixed top-0 left-0 right-0 z-20 flex items-center justify-between px-8 py-6 bg-black bg-opacity-60 backdrop-blur-md">
+            <div class="text-3xl font-black">Iron<span class="text-[#FFD100]">Pulse</span> Admin</div>
+            <a href="index.html" class="bg-[#FFD100] text-black font-bold px-5 py-2 rounded hover:bg-yellow-400 transition">Voltar</a>
+        </header>
+
+        <main class="flex-1 mt-24 px-6 max-w-6xl w-full mx-auto">
+            <h1 class="text-4xl font-extrabold text-[#FFD100] mb-6">Painel de Clientes</h1>
+
+            <form id="form-cliente" class="bg-[rgba(72,72,72,0.8)] p-6 rounded-lg shadow-md mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <input type="text" placeholder="Nome" id="nome" class="px-4 py-2 rounded bg-gray-100 text-black" required />
+                    <input type="text" placeholder="CPF" id="cpf" class="px-4 py-2 rounded bg-gray-100 text-black" required />
+                    <select id="status" name="status" class="px-4 py-2 rounded bg-gray-100 text-black" required>
+                        <option value="" disabled selected>Status</option>
+                        <option value="true">Ativo</option>
+                        <option value="false">Inativo</option>
+                    </select>
+                    <select id="plano" name="plano" class="px-4 py-2 rounded bg-gray-100 text-black" required>
+                        <option value="" disabled selected>Plano</option>
+                        <option value="mensal">Mensal</option>
+                        <option value="trimestral">Trimestral</option>
+                        <option value="semestral">Semestral</option>
+                        <option value="anual">Anual</option>
+                    </select>
+                    <input type="text" placeholder="Foto URL" id="foto_url" class="px-4 py-2 rounded bg-gray-100 text-black" />
+                </div>
+                <button type="submit" id="btn-cadastrar" class="mt-4 bg-[#FFD100] text-black font-bold px-6 py-2 rounded hover:bg-yellow-400 transition">
+                    Cadastrar Cliente
+                </button>
+                <button type="submit" id="btn-editar" style="display: none;" class="mt-4 bg-[#FFD100] text-black font-bold px-6 py-2 rounded hover:bg-yellow-400 transition">
+                    Salvar Alterações
+                </button>
+            </form>
+
+            <div class="bg-[rgba(72,72,72,0.8)] p-6 rounded-lg shadow-md">
+                <!-- Filtros -->
+                <div class="mb-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <input type="text" id="filtro-nome" placeholder="Filtrar por nome" class="px-4 py-2 rounded bg-gray-100 text-black">
+                    <input type="text" id="filtro-cpf" placeholder="Filtrar por CPF" class="px-4 py-2 rounded bg-gray-100 text-black">
+                    <select id="filtro-status" class="px-4 py-2 rounded bg-gray-100 text-black">
+                        <option value="">Todos os status</option>
+                        <option value="true">Ativo</option>
+                        <option value="false">Inativo</option>
+                    </select>
+                    <select id="filtro-plano" class="px-4 py-2 rounded bg-gray-100 text-black">
+                        <option value="">Todos os planos</option>
+                        <option value="mensal">Mensal</option>
+                        <option value="trimestral">Trimestral</option>
+                        <option value="semestral">Semestral</option>
+                        <option value="anual">Anual</option>
+                    </select>
+                </div>
+
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr class="text-left text-[#FFD100]">
+                            <th class="pb-2">Nome</th>
+                            <th class="pb-2">CPF</th>
+                            <th class="pb-2">Status</th>
+                            <th class="pb-2">Plano</th>
+                            <th class="pb-2">Foto</th>
+                            <th class="pb-2">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-clientes" class="text-white">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
