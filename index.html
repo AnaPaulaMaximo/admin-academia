@@ -32,7 +32,7 @@
             <form id="form-cliente" class="bg-[rgba(72,72,72,0.8)] p-6 rounded-lg shadow-md mb-8">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <input type="text" placeholder="Nome" id="nome" class="px-4 py-2 rounded bg-gray-100 text-black" required />
-                    <input type="text" placeholder="CPF" id="cpf" class="px-4 py-2 rounded bg-gray-100 text-black" required />
+                    <input type="text" placeholder="CPF" id="cpf" maxlength="11" pattern="\d{11}" class="px-4 py-2 rounded bg-gray-100 text-black" required />
                     <select id="status" name="status" class="px-4 py-2 rounded bg-gray-100 text-black" required>
                         <option value="" disabled selected>Status</option>
                         <option value="true">Ativo</option>
