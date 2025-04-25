@@ -2,15 +2,14 @@
 
 Painel administrativo para gerenciar os dados dos alunos da academia **IronPulse**. Aqui é possível cadastrar novos alunos, editar informações, excluir cadastros, buscar por CPF ou nome e visualizar todos os dados de forma organizada.
 
----
+## Link do vercel
+[Clique aqui](https://admin-academia.vercel.app/)
 
 ## 🚀 Tecnologias utilizadas
 
 - **React.js**
 - **Tailwind CSS**
 - **Firebase Firestore**
-- **Axios**
-- **React Router**
 - **Lucide Icons**
 - **SweetAlert2**
 
