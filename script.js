@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function renderizarClientes() {
         lista.innerHTML = '';
-
+    
         const filtroNome = document.getElementById('filtro-nome').value.toLowerCase();
         const filtroCpf = document.getElementById('filtro-cpf').value.toLowerCase();
         const filtroStatus = document.getElementById('filtro-status').value;
         const filtroPlano = document.getElementById('filtro-plano').value;
-
+    
         const clientesFiltrados = clientes.filter(cliente => {
             return (
                 cliente.nome.toLowerCase().includes(filtroNome) &&
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 (filtroPlano === "" || cliente.plano === filtroPlano)
             );
         });
-
+    
         clientesFiltrados.forEach((cliente) => {
             lista.innerHTML += `
                 <tr>
@@ -33,14 +33,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td class="py-2 px-4">
                         <img src="${cliente.foto_url}" alt="Foto" class="w-12 h-12 rounded-full" />
                     </td>
-                    <td class="py-2 px-4">
-                        <button onclick="editarCliente(${cliente.id})" class="text-yellow-300 font-bold hover:underline">Editar</button>
-                        <button onclick="excluirCliente(${cliente.id})" class="text-red-400 font-bold hover:underline ml-4">Excluir</button>
+                    <td class="py-2 px-4 flex gap-3">
+                        <button onclick="editarCliente(${cliente.id})" class="text-yellow-300 hover:text-yellow-400">
+                            <i data-lucide="edit" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="excluirCliente(${cliente.id})" class="text-red-400 hover:text-red-500">
+                            <i data-lucide="trash-2" class="w-5 h-5"></i>
+                        </button>
                     </td>
                 </tr>
             `;
         });
+    
+        lucide.createIcons();
     }
+    
 
     form.addEventListener('submit', e => {
         e.preventDefault();
